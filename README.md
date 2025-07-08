@@ -26,7 +26,7 @@ Existing models relying solely on tabular or numerical weather prediction data (
 ## 🗂 Project Structure
 
 ```bash
-forecast-irradiance/
+irradiance-fusion-forecast/
 │
 ├── data/             # Raw and processed datasets (satellite, sensor, images)
 ├── notebooks/        # Exploratory Jupyter notebooks
