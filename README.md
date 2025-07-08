@@ -1,4 +1,4 @@
-# SolFusion: Multi-Source Deep Learning for Solar Irradiance Forecasting in Colombia
+# Multi-Source Deep Learning for Solar Irradiance Forecasting in Colombia
 
 This project aims to develop a deep learning-based forecasting model that combines heterogeneous data sources — including satellite imagery (GOES, NOAA GFC), ground-based sky images, and local meteorological measurements — to accurately predict short-term solar irradiance in Colombia.
 
