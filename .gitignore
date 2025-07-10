@@ -1,6 +1,25 @@
-".venv/" 
+# Entornos virtuales
 .venv/
 venv/
-*.pyc
+
+# Archivos Python compilados
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos de configuración
 .env
+.env.*
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Archivos de logs o temporales
+*.log
+*.tmp
+*.bak
+
+
+# MacOS / Windows basura
+.DS_Store
+Thumbs.db
