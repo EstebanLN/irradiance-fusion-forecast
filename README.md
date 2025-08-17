@@ -27,11 +27,12 @@ Existing models relying solely on tabular or numerical weather prediction data (
 
 ```bash
 irradiance-fusion-forecast/
-│
-├── data/             # Raw and processed datasets (satellite, sensor, images)
-├── notebooks/        # Exploratory Jupyter notebooks
-├── src/              # Python modules and utility scripts
-├── models/           # Trained models and checkpoints
-├── docs/             # Literature, diagrams, Overleaf exports
-├── requirements.txt  # Python dependencies
-└── README.md         # This file
+├── data/             # Local datasets (raw/interim) — typically gitignored
+├── models/           # Trained weights / checkpoints — typically gitignored
+├── reports/          # Reports and generated outputs
+│   └── figures/      # Plots/figures (consider only committing finals)
+├── Notebooks/        # Jupyter notebooks
+├── environment.yml   # Primary (Conda) environment spec
+├── requirements.txt  # Optional pip fallback (if you need it)
+└── README.md
+

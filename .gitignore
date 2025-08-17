@@ -1,25 +1,71 @@
-# Entornos virtuales
+# ===== Entornos =====
 .venv/
 venv/
+*.env
+.env.*
+.pyenv
+.python-version
 
-# Archivos Python compilados
+# ===== Python basura =====
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Entornos de configuración
-.env
-.env.*
-
-# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
 
-# Archivos de logs o temporales
-*.log
-*.tmp
-*.bak
-
-
-# MacOS / Windows basura
+# ===== IDE / SO =====
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
 .DS_Store
 Thumbs.db
+
+# ===== Datos y artefactos (no versionar) =====
+# Carpeta principal de datos
+data/**
+!data/.gitkeep
+!data/README.md
+# Intermedios / procesados
+data_interim/**
+!data_interim/.gitkeep
+!data_interim/README.md
+# Modelos / checkpoints
+models/**
+!models/.gitkeep
+!models/README.md
+checkpoints/**
+!checkpoints/.gitkeep
+!checkpoints/README.md
+# Figuras generadas
+reports/figures/**
+!reports/figures/.gitkeep
+!reports/figures/README.md
+
+# (por si se cuelan binarios sueltos fuera de esas carpetas)
+*.parquet
+*.feather
+*.arrow
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.pb
+*.h5
+*.hdf5
+*.nc
+*.nc4
+*.grib
+*.grb
+*.grb2
+*.tif
+*.tiff
+*.jp2
