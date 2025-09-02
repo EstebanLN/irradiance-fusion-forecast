@@ -29,13 +29,17 @@ Thumbs.db
 
 # ===== Datos y artefactos (no versionar) =====
 # Carpeta principal de datos
-data/**
-!data/.gitkeep
-!data/README.md
-# Intermedios / procesados
+data_raw/**
+!data_raw/.gitkeep
+!data_raw/README.md
+# Intermedios
 data_interim/**
 !data_interim/.gitkeep
 !data_interim/README.md
+# Procesados
+data_processed/**
+!data_processed/.gitkeep
+!data_processed/README.md
 # Modelos / checkpoints
 models/**
 !models/.gitkeep
