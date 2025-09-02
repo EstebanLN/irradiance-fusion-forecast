@@ -1,12 +1,12 @@
-# Multi-Source Deep Learning for Solar Irradiance Forecasting in Colombia
+# 🌞 Multi-Source Deep Learning for Solar Irradiance Forecasting in Colombia
 
 This project aims to develop a deep learning-based forecasting model that combines heterogeneous data sources — including satellite imagery (GOES, NOAA GFC), ground-based sky images, and local meteorological measurements — to accurately predict short-term solar irradiance in Colombia.
 
-⚡ **Goal**: Enable photovoltaic (PV) plants to minimize penalties in Colombia’s intraday energy market by improving the reliability of solar generation forecasts.
+**Goal**: Enable photovoltaic (PV) plants to minimize penalties in Colombia’s intraday energy market by improving the reliability of solar generation forecasts.
 
 ---
 
-## 🌞 Motivation
+## Motivation
 
 Colombia is expanding its renewable energy capacity, especially through solar PV. However, regulatory frameworks (e.g., CREG 060 of 2019) impose strict penalties for deviations between scheduled and actual energy delivery. Accurate irradiance forecasting is therefore crucial to reduce risk and economic loss.
 
@@ -14,7 +14,7 @@ Existing models relying solely on tabular or numerical weather prediction data (
 
 ---
 
-## 🧠 Core Ideas
+## Core Ideas
 
 - **Multi-source data fusion**: Combine tabular, image, and satellite data streams.
 - **Deep learning**: Leverage architectures like LSTM, Bi-LSTM, CNN-LSTM.
@@ -27,7 +27,9 @@ Existing models relying solely on tabular or numerical weather prediction data (
 
 ```bash
 irradiance-fusion-forecast/
-├── data/             # Local datasets (raw/interim) — typically gitignored
+├── data_raw/             # Local datasets — typically gitignored
+├── data_interim/             # Local datasets — typically gitignored
+├── data_processed/             # Local datasets — typically gitignored
 ├── models/           # Trained weights / checkpoints — typically gitignored
 ├── reports/          # Reports and generated outputs
 │   └── figures/      # Plots/figures (consider only committing finals)
