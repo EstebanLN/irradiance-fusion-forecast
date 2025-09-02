@@ -23,7 +23,7 @@ Existing models relying solely on tabular or numerical weather prediction data (
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 
 ```bash
 irradiance-fusion-forecast/
