@@ -48,7 +48,7 @@ checkpoints/**
 !checkpoints/.gitkeep
 !checkpoints/README.md
 # Figuras generadas
-reports/figures/**
+# reports/figures/**
 !reports/figures/.gitkeep
 !reports/figures/README.md
 
