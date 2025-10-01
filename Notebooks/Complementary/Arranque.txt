@@ -1,3 +1,18 @@
-jupyter nbconvert --to script 05_ground_baseline_model_v2.ipynb --output 05_ground_baseline_model_v2.py
-nohup python -u 05_ground_baseline_model_v2.py > logs/train_$(date +%F_%H%M).log 2>&1 &
-disown
+# 1) Crear carpeta de logs
+mkdir -p logs
+
+# 2) Convertir el notebook a .py (sin poner .py en --output)
+jupyter nbconvert --to script 05_ground_baseline_model_v2.ipynb --output 05_ground_baseline_model_v2
+
+# 3) Lanzar en background con nohup y logging
+nohup python -u 05_ground_baseline_model_v2.py > logs/train_$(date +%F_%H%M).log 2>&1 & disown
+
+
+# ver procesos python activos del usuario
+ps -u $USER | grep python
+
+# ver el log en vivo
+tail -f logs/train_*.log
+
+# usa el PID que veas con ps
+kill -9 <PID>
