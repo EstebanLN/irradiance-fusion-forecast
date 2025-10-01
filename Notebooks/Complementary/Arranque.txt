@@ -1,0 +1,3 @@
+jupyter nbconvert --to script 05_ground_baseline_model_v2.ipynb --output 05_ground_baseline_model_v2.py
+nohup python -u 05_ground_baseline_model_v2.py > logs/train_$(date +%F_%H%M).log 2>&1 &
+disown
