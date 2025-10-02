@@ -1,0 +1,12 @@
+# 1. Convertir el notebook a script
+jupyter nbconvert --to script 05_ground_hpo_optuna_v1.ipynb --output 05_ground_hpo_optuna_v1
+
+# 2. Lanzar el script con nohup, guardando logs en optuna_studies
+nohup python -u 05_ground_hpo_optuna_v1.py > ../optuna_studies/hpo_$(date +%F_%H%M).log 2>&1 & disown
+
+
+tail -f ../optuna_studies/hpo_*.log
+
+ps -u $USER | grep python
+
+kill -9 <PID>
