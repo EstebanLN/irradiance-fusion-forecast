@@ -5,19 +5,37 @@
 
 # ## Libraries
 
-# In[2]:
+# In[ ]:
 
+
+# import os
+# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"       # 0=all,1=info,2=warning,3=error
+# # os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"    # opcional: desactiva oneDNN por reproducibilidad exacta (puede bajar performance)
 
 # import tensorflow as tf
-# print("TensorFlow version:", tf.__version__)
-# print("GPU disponible:", tf.config.list_physical_devices('GPU'))
-
-# # Test simple
-# hello = tf.constant('Hello, TensorFlow!')
-# print(hello.numpy().decode())
+# gpus = tf.config.list_physical_devices('GPU')
+# for g in gpus:
+#     tf.config.experimental.set_memory_growth(g, True)
+# print("GPUs visibles:", gpus)
 
 
-# In[3]:
+# In[ ]:
+
+
+# import tensorflow as tf, time
+# with tf.device('/GPU:0'):
+#     a = tf.random.normal([4000, 4000])
+#     b = tf.random.normal([4000, 4000])
+#     tf.linalg.matmul(a, b)  # warmup
+# t0 = time.time()
+# for _ in range(5):
+#     with tf.device('/GPU:0'):
+#         c = tf.linalg.matmul(a, b)
+# _ = c.numpy()
+# print("Tiempo 5 matmul GPU:", time.time() - t0, "s")
+
+
+# In[2]:
 
 
 import os, json, numpy as np, pandas as pd, matplotlib.pyplot as plt
@@ -37,7 +55,7 @@ from optuna.storages import JournalFileStorage, JournalFileOpenLock
 
 # ## Config
 
-# In[4]:
+# In[3]:
 
 
 SEED = 42
@@ -59,7 +77,7 @@ print("Artifacts dir:", ART_DIR)
 
 # ### Data loading and preprocessing
 
-# In[5]:
+# In[4]:
 
 
 train = pd.read_parquet(TRAIN_PQ).sort_index()
@@ -82,7 +100,7 @@ Xte = scaler.transform(Xte_df)
 
 # ## Helpers
 
-# In[6]:
+# In[5]:
 
 
 def _rmse(a,b):
@@ -142,7 +160,7 @@ def prepare_journal_storage(study_name: str) -> JournalStorage:
 
 # ### Models
 
-# In[7]:
+# In[6]:
 
 
 def build_mlp(input_dim, n1=128, n2=64, do1=0.2, do2=0.1, act="relu", l2w=0.0):
@@ -190,7 +208,7 @@ def build_transformer(L, n_feat, d_model=64, heads=4, ff_dim=128, att_do=0.1, do
 
 # ### Saving
 
-# In[ ]:
+# In[7]:
 
 
 def _safe_load_best(study):
@@ -317,7 +335,7 @@ def _safe_load_best(study):
 
 # ## Baseline
 
-# In[9]:
+# In[8]:
 
 
 base_src = None
@@ -338,7 +356,7 @@ print(f"Baseline → RMSE: {_rmse(yte, y_base):.4f} | MAE: {mean_absolute_error(
 
 # ## Track A - MLP
 
-# In[10]:
+# In[9]:
 
 
 def objective_mlp(trial: optuna.Trial) -> float:
@@ -380,7 +398,7 @@ def objective_mlp(trial: optuna.Trial) -> float:
     return val_rmse
 
 
-# In[11]:
+# In[10]:
 
 
 storageA = prepare_journal_storage("ground_trackA_mlp")
@@ -744,7 +762,7 @@ models_info = {
 
 
 rows = []
-OUT_FIG = OUT_DIR
+OUT_FIG = Path("../reports/figures")
 for name, cfg in models_info.items():
     print(f"\n=== {name} ===")
     if cfg["type"] == "tabular":
