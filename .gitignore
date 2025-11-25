@@ -51,6 +51,9 @@ checkpoints/**
 # reports/figures/**
 !reports/figures/.gitkeep
 !reports/figures/README.md
+*.png
+*.jpg
+*.csv
 
 # (por si se cuelan binarios sueltos fuera de esas carpetas)
 *.parquet
