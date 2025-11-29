@@ -1,6 +1,12 @@
 # 🌞 Multi-Source Deep Learning for Solar Irradiance Forecasting in Colombia
 
-This project aims to develop a deep learning-based forecasting model that combines heterogeneous data sources — including satellite imagery (GOES, NOAA GFC), ground-based sky images, and local meteorological measurements — to accurately predict short-term solar irradiance in Colombia.
+This repository contains the code and documentation for a project on **short-term solar irradiance forecasting (GHI)** for a reference photovoltaic site in Colombia.
+
+The work focuses on forecasting **global horizontal irradiance (GHI)** at a **60-minute horizon** using:
+- Ground-based tabular data (irradiance and meteorological measurements, plus engineered features and solar geometry).
+- Models that include both purely tabular approaches and hybrid architectures that incorporate information derived from satellite products.
+
+The repository is organized to support a reproducible pipeline: data preprocessing, feature engineering, model training, and reporting of results.
 
 **Goal**: Enable photovoltaic (PV) plants to minimize penalties in Colombia’s intraday energy market by improving the reliability of solar generation forecasts.
 
@@ -27,14 +33,21 @@ Existing models relying solely on tabular or numerical weather prediction data (
 
 ```bash
 irradiance-fusion-forecast/
-├── data_raw/             # Local datasets — typically gitignored
-├── data_interim/             # Local datasets — typically gitignored
-├── data_processed/             # Local datasets — typically gitignored
-├── models/           # Trained weights / checkpoints — typically gitignored
-├── reports/          # Reports and generated outputs
-│   └── figures/      # Plots/figures (consider only committing finals)
-├── Notebooks/        # Jupyter notebooks
-├── environment.yml   # Primary (Conda) environment spec
-├── requirements.txt  # Optional pip fallback (if you need it)
+├── Notebooks/         # Jupyter notebooks for exploration, preprocessing and modeling
+│
+├── data_raw/          # Original input data as obtained from external sources
+├── data_interim/      # Intermediate datasets after cleaning / alignment
+├── data_processed/    # Final modeling-ready datasets (e.g. train/val/test splits)
+│
+├── models/            # Model definitions, training scripts and saved artifacts
+│
+├── reports/           # Figures, tables and manuscript-oriented outputs
+│
+├── .gitignore
+├── environment.yml    # Conda environment specification
+├── requirements.txt   # Python dependencies (pip)
 └── README.md
+```
 
+This repository does not include real datasets for confidentiality and size reasons.
+The folder structure mirrors the structure used during development so that the pipeline remains fully reproducible if data is provided.
