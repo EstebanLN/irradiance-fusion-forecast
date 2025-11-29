@@ -1,12 +1,13 @@
-# ===== Entornos =====
+# ===========================
+# 1. ENTORNOS Y PYTHON
+# ===========================
 .venv/
 venv/
+env/
 *.env
 .env.*
 .pyenv
 .python-version
-
-# ===== Python basura =====
 __pycache__/
 *.py[cod]
 *$py.class
@@ -18,7 +19,9 @@ __pycache__/
 coverage.xml
 htmlcov/
 
-# ===== IDE / SO =====
+# ===========================
+# 2. IDE / SISTEMA OPERATIVO
+# ===========================
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
@@ -27,52 +30,74 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# ===== Datos y artefactos (no versionar) =====
-# Carpeta principal de datos
+# ===========================
+# 3. CARPETAS ESPECÍFICAS (NO VERSIONAR)
+# ===========================
+# Carpetas de datos estándar
 data_raw/**
 !data_raw/.gitkeep
-!data_raw/README.md
-# Intermedios
 data_interim/**
 !data_interim/.gitkeep
-!data_interim/README.md
-# Procesados
 data_processed/**
 !data_processed/.gitkeep
-!data_processed/README.md
-# Modelos / checkpoints
+
+# Carpetas de salidas y experimentos (Tu solicitud)
+optuna_studies/
+outputs_dsrf_ground/
+outputs_mcmipf_ground/
+
+# Modelos y checkpoints
 models/**
 !models/.gitkeep
-!models/README.md
-checkpoints/**
-!checkpoints/.gitkeep
-!checkpoints/README.md
-# Figuras generadas
-# reports/figures/**
+checkpoints/
+
+# Reportes (ignorar figuras generadas)
+reports/figures/**
 !reports/figures/.gitkeep
-!reports/figures/README.md
+
+# ===========================
+# 4. TIPOS DE ARCHIVO A IGNORAR (GLOBAL)
+# ===========================
+# Imágenes
 *.png
 *.jpg
-*.csv
+*.jpeg
+*.svg
+*.tiff
+*.tif
+*.jp2
 
-# (por si se cuelan binarios sueltos fuera de esas carpetas)
+# Datos y Tablas
+*.csv
+*.tsv
+*.json
+*.xml
 *.parquet
 *.feather
 *.arrow
+
+# Serialización y Numpy
 *.pkl
 *.pickle
 *.joblib
+*.npz
+*.npy
+
+# Modelos Deep Learning
 *.pt
 *.pth
 *.onnx
 *.pb
 *.h5
 *.hdf5
+*.ckpt
+
+# Archivos Geoespaciales / Meteorológicos
 *.nc
 *.nc4
 *.grib
 *.grb
 *.grb2
-*.tif
-*.tiff
-*.jp2
+
+# Logs
+*.log
